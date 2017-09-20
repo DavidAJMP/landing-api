@@ -1,0 +1,27 @@
+{
+  "name": "landing-api",
+  "version": "0.0.0",
+  "description": "Rest API for landing pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:niix/hapi-rest-demo.git"
+  },
+  "author": "DavidAJMP",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^8.1.0",
+    "joi": "^5.1.0",
+    "boom": "^5.2.0",
+    "sequelize": "^2.0.0-rc7",
+    "mysql": "2.14.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-nodemon": "^1.0.5",
+    "sequelize-cli": "^1.0.3"
+  }
+}
