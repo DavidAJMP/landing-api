@@ -1,22 +1,22 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
-    "database": "landing_development",
+    "password": "Password1",
+    "database": "landing_pages",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "landing_test",
+    "password": "Password1",
+    "database": "landing_pages",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "Password1",
-    "database": "landing_production",
+    "database": "landing_pages",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
