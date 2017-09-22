@@ -4,15 +4,25 @@ var Joi = require('joi');
 module.exports = [
   {
     method: 'GET',
-    path: '/api/visitors',
-    handler: api.visitors.all
+    path: '/api/visitors/{key}',
+    handler: api.visitors.all,
+    config: {
+      validate: {
+        params: {
+          key: Joi.string().required()
+        }
+      }
+    }
   },
   {
     method: 'POST',
-    path: '/api/visitor',
+    path: '/api/visitor/{key}',
     handler: api.visitors.post,
     config: {
       validate: {
+        params: {
+          key: Joi.string().required()
+        },
         payload: {
           visitor: Joi.object().required().keys({
             name: Joi.string().required(),

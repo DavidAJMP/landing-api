@@ -1,17 +1,36 @@
-var models = require('../../models');
-var Boom = require('boom');
+let models = require('../../models');
+let Boom = require('boom');
+let { async, await } = require('asyncawait');
 
 exports.visitors = {
   all: function (request, reply) {
-    models.Visitor.findAll()
-      .then(function (visitors) {
+    let key = request.params.key;
+    const getVisitors = async(() => {
+      let campaign = await(models.Campaign.find({ where: { key } }));
+      if (campaign)
+        return await(models.Visitor.findAll({ where: { CampaignId: campaign.id } }));
+      else
+        return [];
+    });
+    getVisitors()
+      .then((visitors) => {
         reply(visitors).code(200);
       });
   },
   post: function (request, reply) {
     let { visitor } = request.payload;
-    models.Visitor.create(visitor)
-      .then(function (visitor) {
+    let key = request.params.key;
+    const newVisitor = async(() => {
+      let campaign = await(models.Campaign.find({ where: { key } }));
+      if (campaign) {
+        visitor.CampaignId = campaign.id;
+        return await(models.Visitor.create(visitor));
+      } else {
+        return null;
+      }
+    });
+    newVisitor()
+      .then((visitor) => {
         reply(visitor).code(200);
       })
       .catch((error) => {

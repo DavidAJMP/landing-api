@@ -14,10 +14,12 @@
   "license": "MIT",
   "dependencies": {
     "hapi": "^8.1.0",
+    "hapi-cors": "^1.0.1",
     "joi": "^5.1.0",
     "boom": "^5.2.0",
     "sequelize": "^2.0.0-rc7",
-    "mysql": "2.14.1"
+    "mysql": "2.14.1",
+    "asyncawait": "^1.0.6"
   },
   "devDependencies": {
     "gulp": "^3.8.10",

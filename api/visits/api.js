@@ -1,21 +1,39 @@
-var models = require('../../models');
-var Boom = require('boom');
+let models = require('../../models');
+let Boom = require('boom');
+let { async, await } = require('asyncawait');
 
 exports.visits = {
-  all: function(request, reply) {
-    models.Visit.findAll()
-      .then(function(visits) {
+  all: function (request, reply) {
+    let key = request.params.key;
+    const getVisits = async(() => {
+      let campaign = await(models.Campaign.find({ where: { key } }));
+      if (campaign)
+        return await(models.Visit.findAll({ where: { CampaignId: campaign.id } }));
+      else
+        return [];
+    });
+    getVisits()
+      .then((visits) => {
         reply(visits).code(200);
       });
   },
   post: function (request, reply) {
     let { visit } = request.payload;
-    models.Visit.create(visit)
-      .then(function (visit) {
+    let key = request.params.key;
+    const newVisit = async(() => {
+      let campaign = await(models.Campaign.find({ where: { key } }));
+      if (campaign) {
+        visit.CampaignId = campaign.id;
+        return await(models.Visit.create(visit));
+      } else {
+        return null;
+      }
+    });
+    newVisit()
+      .then((visit) => {
         reply(visit).code(200);
       })
       .catch((error) => {
-        console.log("***ERROR***\n", error);
         reply(Boom.badImplementation());
       });
   }
