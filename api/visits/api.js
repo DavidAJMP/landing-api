@@ -2,8 +2,7 @@ let models = require('../../models');
 let Boom = require('boom');
 let { async, await } = require('asyncawait');
 
-exports.visits = {
-  all: function (request, reply) {
+ const all = (request, reply) => {
     let key = request.params.key;
     const getVisits = async(() => {
       let campaign = await(models.Campaign.find({ where: { key } }));
@@ -16,8 +15,9 @@ exports.visits = {
       .then((visits) => {
         reply(visits).code(200);
       });
-  },
-  post: function (request, reply) {
+  };
+
+  const post = (request, reply) => {
     let { visit } = request.payload;
     let key = request.params.key;
     const newVisit = async(() => {
@@ -36,5 +36,9 @@ exports.visits = {
       .catch((error) => {
         reply(Boom.badImplementation());
       });
-  }
+  };
+
+module.exports = {
+    post,
+    all    
 };
