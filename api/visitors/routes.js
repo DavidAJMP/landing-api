@@ -5,7 +5,7 @@ module.exports = [
   {
     method: 'GET',
     path: '/api/visitors/{key}',
-    handler: api.visitors.all,
+    handler: api.all,
     config: {
       validate: {
         params: {
@@ -17,7 +17,7 @@ module.exports = [
   {
     method: 'POST',
     path: '/api/visitor/{key}',
-    handler: api.visitors.post,
+    handler: api.post,
     config: {
       validate: {
         params: {
