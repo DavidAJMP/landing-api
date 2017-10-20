@@ -1,25 +1,20 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Campaign = sequelize.define('Campaign', {
-    key: {
+  var visits = sequelize.define('visits', {
+    ip: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    description: {
+    location: {
       type: DataTypes.STRING,
-      allowNull: false
-    },
-    validThru: {
-      type: DataTypes.DATE,
       allowNull: true
     }
   }, {
     classMethods: {
       associate: function(models) {
-        Campaign.hasMany(models.Visit);
-        Campaign.hasMany(models.Visitor);
+        visits.belongsTo(models.campaigns);
       }
     }
   });
-  return Campaign;
+  return visits;
 };

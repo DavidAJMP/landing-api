@@ -1,4 +1,4 @@
-let models = require('../../models');
+let db = require('../../models');
 let Boom = require('boom');
 let {
   async,
@@ -8,13 +8,13 @@ let {
 const all = (request, reply) => {
   let key = request.params.key;
   const getVisitors = async(() => {
-    let campaign = await (models.Campaign.find({
+    let campaign = await (db.campaigns.find({
       where: {
         key
       }
     }));
     if (campaign)
-      return await (models.Visitor.findAll({
+      return await (db.visitors.findAll({
         where: {
           CampaignId: campaign.id
         }
@@ -34,14 +34,14 @@ const post = (request, reply) => {
   } = request.payload;
   let key = request.params.key;
   const newVisitor = async(() => {
-    let campaign = await (models.Campaign.find({
+    let campaign = await (db.campaigns.find({
       where: {
         key
       }
     }));
     if (campaign) {
       visitor.CampaignId = campaign.id;
-      return await (models.Visitor.create(visitor));
+      return await (db.visitors.create(visitor));
     } else {
       return null;
     }
