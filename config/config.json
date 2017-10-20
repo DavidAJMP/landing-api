@@ -13,6 +13,13 @@
     "host": "TODO: DEFINE IN .ENV",
     "dialect": "mysql"
   },
+  "staging": {
+    "username": "TODO: DEFINE IN .ENV",
+    "password": "TODO: DEFINE IN .ENV",
+    "database": "TODO: DEFINE IN .ENV",
+    "host": "TODO: DEFINE IN .ENV",
+    "dialect": "mysql"
+  },
   "production": {
     "username": "TODO: DEFINE IN .ENV",
     "password": "TODO: DEFINE IN .ENV",
