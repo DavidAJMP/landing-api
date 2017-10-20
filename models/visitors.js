@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function (sequelize, DataTypes) {
-  var Visitor = sequelize.define('Visitor', {
+  var visitors = sequelize.define('visitors', {
     name: {
       type: DataTypes.STRING,
       allowNull: true
@@ -20,9 +20,9 @@ module.exports = function (sequelize, DataTypes) {
   }, {
       classMethods: {
         associate: function (models) {
-          Visitor.belongsTo(models.Campaign);
+          visitors.belongsTo(models.campaigns);
         }
       }
     });
-  return Visitor;
+  return visitors;
 };
