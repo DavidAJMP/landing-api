@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataTypes) {
     description: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    validThru: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     classMethods: {

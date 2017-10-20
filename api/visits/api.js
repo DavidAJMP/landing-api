@@ -1,6 +1,9 @@
 let models = require('../../models');
 let Boom = require('boom');
-let { async, await } = require('asyncawait');
+let {
+  async,
+  await
+} = require('asyncawait');
 
  const all = (request, reply) => {
     let key = request.params.key;
@@ -28,6 +31,20 @@ let { async, await } = require('asyncawait');
       } else {
         return null;
       }
+    }));
+    if (campaign) {
+      visit.CampaignId = campaign.id;
+      return await (models.Visit.create(visit));
+    } else {
+      return null;
+    }
+  });
+  newVisit()
+    .then((visit) => {
+      reply(visit).code(200);
+    })
+    .catch((error) => {
+      reply(Boom.badImplementation());
     });
     newVisit()
       .then((visit) => {
