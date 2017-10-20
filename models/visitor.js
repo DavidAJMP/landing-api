@@ -3,15 +3,19 @@ module.exports = function (sequelize, DataTypes) {
   var Visitor = sequelize.define('Visitor', {
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     phone: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
+    },
+    customData: {
+      type: DataTypes.BLOB('long'),
+      allowNull: true
     }
   }, {
       classMethods: {
