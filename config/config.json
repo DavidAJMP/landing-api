@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": "Password1",
-    "database": "landing_pages",
+    "username": "USE_YOUR_LOCAL_MYSQL_USERNAME",
+    "password": "USE_YOUR_LOCAL_MYSQL_USER_PASSWORD",
+    "database": "USE_YOUR_LOCAL_MYSQL_DB_NAME",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "Password1",
-    "database": "landing_pages",
-    "host": "127.0.0.1",
+    "username": "TODO: DEFINE IN .ENV",
+    "password": "TODO: DEFINE IN .ENV",
+    "database": "TODO: DEFINE IN .ENV",
+    "host": "TODO: DEFINE IN .ENV",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "Password1",
-    "database": "landing_pages",
-    "host": "127.0.0.1",
+    "username": "TODO: DEFINE IN .ENV",
+    "password": "TODO: DEFINE IN .ENV",
+    "database": "TODO: DEFINE IN .ENV",
+    "host": "TODO: DEFINE IN .ENV",
     "dialect": "mysql"
   }
 }
