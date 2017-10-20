@@ -5,7 +5,7 @@ module.exports = [
   {
     method: 'GET',
     path: '/api/visits/{key}',
-    handler: api.visits.all,
+    handler: api.all,
     config: {
       validate: {
         params: {
