@@ -31,28 +31,14 @@ let {
       } else {
         return null;
       }
-    }));
-    if (campaign) {
-      visit.CampaignId = campaign.id;
-      return await (models.Visit.create(visit));
-    } else {
-      return null;
-    }
-  });
-  newVisit()
+    });
+    newVisit()
     .then((visit) => {
       reply(visit).code(200);
     })
     .catch((error) => {
       reply(Boom.badImplementation());
     });
-    newVisit()
-      .then((visit) => {
-        reply(visit).code(200);
-      })
-      .catch((error) => {
-        reply(Boom.badImplementation());
-      });
   };
 
 module.exports = {
