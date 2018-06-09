@@ -46,12 +46,6 @@ const post = (request, reply) => {
       return null;
     }
   });
-  if (campaign) {
-    visit.CampaignId = campaign.id;
-    return await (models.Visit.create(visit));
-  } else {
-    return null;
-  }
   newVisit()
     .then((visit) => {
       reply(visit).code(200);
