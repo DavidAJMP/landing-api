@@ -6,7 +6,7 @@ let {
 } = require('asyncawait');
 
 const all = (request, reply) => {
-  let key = request.params.key;
+  let { key } = request.params;
   const getVisits = async (() => {
     let campaign = await (models.Campaign.find({
       where: {
