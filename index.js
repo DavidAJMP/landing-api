@@ -8,6 +8,7 @@ server.connection({ routes: { cors: true }, port: 3000 });
 // routes
 server.route(require('./api/visitors/routes'));
 server.route(require('./api/visits/routes'));
+server.route(require('./api/campaigns/routes'));
 
 server.route({
     method: 'GET',
