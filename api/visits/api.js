@@ -39,20 +39,14 @@ const post = (request, reply) => {
         key
       }
     }));
-    if (campaign) {
-      visit.CampaignId = campaign.id;
-      return await (models.Visit.create(visit));
-    } else {
-      return null;
-    }
-  });
-  newVisit()
+    newVisit()
     .then((visit) => {
       reply(visit).code(200);
     })
     .catch((error) => {
       reply(Boom.badImplementation());
     });
+  });
 };
 
 module.exports = {
