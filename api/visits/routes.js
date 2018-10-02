@@ -17,7 +17,7 @@ module.exports = [
   {
     method: 'POST',
     path: '/api/visit/{key}',
-    handler: api.visits.post,
+    handler: api.post,
     config: {
       validate: {
         params: {

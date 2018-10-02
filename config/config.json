@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "USE_YOUR_LOCAL_MYSQL_USERNAME",
-    "password": "USE_YOUR_LOCAL_MYSQL_USER_PASSWORD",
-    "database": "USE_YOUR_LOCAL_MYSQL_DB_NAME",
+    "username": "root",
+    "password": "root",
+    "database": "landing",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
