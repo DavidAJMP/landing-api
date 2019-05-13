@@ -14,17 +14,17 @@
   "author": "DavidAJMP",
   "license": "MIT",
   "dependencies": {
-    "hapi": "^8.1.0",
-    "hapi-cors": "^1.0.1",
-    "joi": "^5.1.0",
-    "boom": "^5.2.0",
-    "sequelize": "^2.0.0-rc7",
-    "mysql": "2.14.1",
-    "asyncawait": "^1.0.6"
+    "hapi": "^18.1.0",
+    "hapi-cors": "^1.0.3",
+    "joi": "^14.3.1",
+    "boom": "^7.3.0",
+    "sequelize": "^5.8.6",
+    "mysql": "2.17.1",
+    "asyncawait": "^1.0.8"
   },
   "devDependencies": {
-    "gulp": "^3.8.10",
-    "gulp-nodemon": "^1.0.5",
-    "sequelize-cli": "^1.0.3"
+    "gulp": "^4.0.2",
+    "gulp-nodemon": "^2.4.2",
+    "sequelize-cli": "^5.4.0"
   }
 }
