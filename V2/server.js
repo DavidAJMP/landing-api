@@ -1,4 +1,3 @@
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const fs = require('fs');
@@ -18,13 +17,13 @@ const { NODE_ENV } = process.env;
 const isDevEnvironment = NODE_ENV === 'development';
 
 app.use(
-  bodyParser.json({
+  express.json({
     limit: '100mb'
   })
 );
 
 app.use(
-  bodyParser.urlencoded({
+  express.urlencoded({
     extended: true,
     limit: '100mb'
   })
