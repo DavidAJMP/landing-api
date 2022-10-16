@@ -1,24 +1,21 @@
-var Hapi = require('hapi');
-var models = require('./models');
+require("dotenv").config();
+import { listen } from "./server";
+import { sequelize } from "./db";
 
-// create the server
-var server = new Hapi.Server();
-server.connection({ routes: { cors: true }, port: 3000 });
+const { PORT } = process.env;
 
-// routes
-server.route(require('./api/visitors/routes'));
-server.route(require('./api/visits/routes'));
+(async () => {
+  try {
+    console.log(`🚀 Application connecting to LANDING DB...`);
+    await sequelize.authenticate();
+    await sequelize.sync();
+    console.log(`🚀 Application connected to LANDING DB`);
 
-server.route({
-    method: 'GET',
-    path: '/api',
-    handler: function (request, reply) {
-        reply({ 'api': 'hello world!' });
-    }
-});
-
-models.sequelize.sync().then(function () {
-    server.start(function () {
-        console.log('Running on 3000');
+    listen(PORT, () => {
+      console.log(`✅ Landing API running at http://localhost:${PORT}`);
     });
-});
+  } catch (error) {
+    console.error("💥 Error trying to connect to DB: ", error);
+    process.exit(1);
+  }
+})();

@@ -1,11 +1,10 @@
 {
   "name": "landing-api",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "description": "Rest API for landing pages",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "v2": "node ./V2/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
