@@ -1,31 +1,31 @@
-const cors = require('cors');
-const express = require('express');
-const fs = require('fs');
-const path = require('path');
-const helmet = require('helmet');
+import cors from "cors";
+import express, { json, urlencoded } from "express";
+import { readdirSync } from "fs";
+import { resolve } from "path";
+import helmet from "helmet";
 
 const app = express();
 
 app.use(
   helmet({
-    hsts: false
+    hsts: false,
   })
 );
 
 const { NODE_ENV } = process.env;
 
-const isDevEnvironment = NODE_ENV === 'development';
+const isDevEnvironment = NODE_ENV === "development";
 
 app.use(
-  express.json({
-    limit: '100mb'
+  json({
+    limit: "100mb",
   })
 );
 
 app.use(
-  express.urlencoded({
+  urlencoded({
     extended: true,
-    limit: '100mb'
+    limit: "100mb",
   })
 );
 
@@ -33,9 +33,9 @@ app.use(cors());
 
 const source = `${__dirname}/src`;
 
-fs.readdirSync(source).forEach(folder => {
+readdirSync(source).forEach((folder) => {
   const fileName = `${folder}.routes.js`;
-  const route = path.resolve(source, folder, fileName);
+  const route = resolve(source, folder, fileName);
 
   try {
     require(route)(app);
@@ -45,8 +45,8 @@ fs.readdirSync(source).forEach(folder => {
 });
 
 if (isDevEnvironment) {
-  console.log('Available endpoints:');
-  app._router.stack.forEach(r => {
+  console.log("Available endpoints:");
+  app._router.stack.forEach((r) => {
     if (r.route && r.route.path) {
       console.log(r.route.stack[0].method, r.route.path);
     }
@@ -58,7 +58,7 @@ app.use((error, req, res, next) => {
   console.error(`${req.method} ${req.url} ${error.message}`);
 
   return res.status(500).send({
-    error: isDevEnvironment ? error.message : 'An internal error ocurred'
+    error: isDevEnvironment ? error.message : "An internal error ocurred",
   });
 });
 
@@ -69,4 +69,4 @@ app.use((req, res, next) => {
     .json({ message: `${req.method} ${req.originalUrl} not found` });
 });
 
-module.exports = app;
+export default app;

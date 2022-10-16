@@ -1,5 +1,4 @@
-"use strict";
-module.exports = function (sequelize, DataTypes) {
+export default function (sequelize, DataTypes) {
   var Page = sequelize.define(
     "Page",
     {
@@ -17,4 +16,4 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
   return Page;
-};
+}
