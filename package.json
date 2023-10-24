@@ -1,6 +1,6 @@
 {
   "name": "landing-api",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Rest API for landing pages",
   "main": "index.js",
   "scripts": {
@@ -14,24 +14,31 @@
   "author": "DavidAJMP",
   "license": "MIT",
   "dependencies": {
-    "asyncawait": "^1.0.8",
+    "asyncawait": "^3.0.0",
     "boom": "^7.3.0",
     "cors": "^2.8.5",
-    "dotenv": "^8.1.0",
-    "express": "^4.17.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "fs": "0.0.1-security",
     "hapi": "^18.1.0",
     "hapi-cors": "^1.0.3",
-    "helmet": "^3.21.1",
-    "joi": "^14.3.1",
-    "mysql": "2.17.1",
-    "mysql2": "^1.7.0",
+    "helmet": "^7.0.0",
+    "joi": "^17.11.0",
+    "mysql": "2.18.1",
+    "mysql2": "^3.6.2",
     "path": "^0.12.7",
-    "sequelize": "^5.19.3"
+    "sequelize": "^6.33.0",
+    "source-map-loader": "^4.0.1",
+    "ts-loader": "^9.5.0"
   },
   "devDependencies": {
+    "@types/boom": "^7.3.4",
     "gulp": "^4.0.2",
-    "gulp-nodemon": "^2.4.2",
-    "sequelize-cli": "^5.4.0"
+    "gulp-nodemon": "^2.5.0",
+    "sequelize-cli": "^6.6.1"
+  },
+  "engines": {
+    "node": "18.17.1 ",
+    "npm": "9.6.7"
   }
 }
