@@ -4,7 +4,7 @@
   "description": "Rest API for landing pages",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "rm -rf ./built && node ./built/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
