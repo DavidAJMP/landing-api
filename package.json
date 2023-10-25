@@ -4,8 +4,10 @@
   "description": "Rest API for landing pages",
   "main": "index.js",
   "scripts": {
-    "start": "rm -rf ./built && node ./built/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf ./built && npx tsc",
+    "start": "node ./built/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:start": "docker-compose up --build --remove-orphans -d"
   },
   "repository": {
     "type": "git",
@@ -35,7 +37,8 @@
     "@types/boom": "^7.3.4",
     "gulp": "^4.0.2",
     "gulp-nodemon": "^2.5.0",
-    "sequelize-cli": "^6.6.1"
+    "sequelize-cli": "^6.6.1",
+    "typescript": "5.2.2"
   },
   "engines": {
     "node": "18.17.1 ",
