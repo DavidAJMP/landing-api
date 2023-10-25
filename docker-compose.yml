@@ -14,5 +14,23 @@ services:
       - "3306"
     volumes:
       - my-db:/var/lib/mysql
+  api:
+    build:
+      context: ./
+      dockerfile: api.dockerfile
+    env_file: .env
+    command: sh -c "npm start"
+    ports:
+      - "7070:7070"
+      # this port is for the node debugger
+      - "9299:9299"
+    expose:
+      - "7070"
+    working_dir: /api
+    # this enables hot reloading by binding the source code directory to the working directory of the container
+    volumes:
+      - ./src:/src
+    depends_on:
+      - db
 volumes:
   my-db:
